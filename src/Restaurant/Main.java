@@ -8,10 +8,51 @@ public class Main {
 
         Scanner kb = new Scanner(System.in);
 
+        //tier system: restaurant > menu > food > ingredient
+        //for now, there is only one restaurant per instance
+
+
         System.out.println("===Restaurant Menu Creator===");
         System.out.println("Enter a name for your restaurant:" );
         String RName = kb.next();
         System.out.println("Your restaurant name is: " + RName);
+
+        /*
+        //home menu
+        System.out.println("HOME: Menus selection (all lower case):");
+        System.out.println("\tm:menu menu");
+        System.out.println("\tf: food items");
+        System.out.println("\ti: ingredients");
+        System.out.println("\to: other info");
+        System.out.println(" ");
+
+        //ingredient menu
+        System.out.println("=Ingredient Menu=");
+        System.out.println("\ta: add new");
+        System.out.println("\ts: show list of ingredients");
+        System.out.println("\te: edit an ingredient");
+        System.out.println(" ");
+
+        //food menu
+        System.out.println("=Food menu=");
+        System.out.println("\ta: add new");
+        System.out.println("\te: edit a food item");
+        System.out.println("\ts: show list of food items");
+        System.out.println(" ");
+
+        //menu menu
+        System.out.println("=Menu menu");
+        System.out.println("\ta: add new menu");
+        System.out.println("\ts: show list of menus");
+        System.out.println("\tm: show a menu's availability");
+        System.out.println("\te: edit an existing menu");
+        System.out.println(" ");
+        */
+
+        //First try to add a menu, put food items in that, then add ingredients to that
+        //then add modifying and adding more
+        System.out.println("Add a new menu: ");
+
 
         //add ingredients
         Ingredient americanCheese = new Ingredient("American Cheese", "milk, enzymes, salt, oil");
@@ -27,6 +68,12 @@ public class Main {
         System.out.println("A " + hamburger.getFoodName() + " costs " + hamburger.getFoodPrice() + "$ and has: " + hamburger.getIngredientCount(0)+ " " + hamburger.getIngredientName(0) + "s.");
 
         System.out.println("This is what is in our " + beefPatty.getName() + ": " + beefPatty.getIngredientList() + ".");
+    }
+
+    Menu[] menuList = new Menu[8];
+    public void addMenu(int id, String n, String a, String aR) {
+        Menu m = new Menu(n, a, aR);
+        menuList[id] = m;
     }
 
 }
