@@ -1,15 +1,21 @@
 package Restaurant;
 
-public class Ingredient {
+class Ingredient {
 
     private String name;
+    private String ingredientList;
 
-    public Ingredient(String n) {
+    Ingredient(String n, String il) {
         name = n;
+        ingredientList = il;
     }
     String getName() {
         return name;
     }
+    String getIngredientList() {
+        return ingredientList;
+    }
+
 
 
 }
