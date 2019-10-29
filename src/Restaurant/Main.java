@@ -52,8 +52,36 @@ public class Main {
         //First try to add a menu, put food items in that, then add ingredients to that
         //then add modifying and adding more
         System.out.println("Add a new menu: ");
+        System.out.println("Enter the name of the menu: ");
+        int id = 0;
+        String name = kb.next();
+        System.out.println("Is there limited availability? Type 0 for no.");
+        System.out.println("otherwise type: s for seasonal, m for month, w for week, or t for daily time based availability");
+        String ava = kb.next();
+        System.out.println("Enter the range of the availability, 0 if there is no availability: ");
+        System.out.println("range letterss");
+        String avaR = kb.next();
+        addMenu(id, name, ava, avaR);
+
+        //add food items
+        System.out.println("Enter the food item's name: ");
+        //id will be handled later (id of menu, and food, and ingredients)
+        int menuID = 0;
+        int foodID = 0;
+        String foodName = kb.next();
+        double price = kb.nextDouble();
+        menuList[menuID].addFood(foodID, foodName, price);
+
+        System.out.println("For this food item, what are the ingredients?");
+        int ingID = 0;
+        System.out.println("Enter the name of the ingredient");
+        String ingName = kb.next();
+        System.out.println("Enter the ingredients of this ingredient, if there is nothing more than itself, put the same name: ");
+        String ingList = kb.next();
+        menuList[menuID].foodList[foodID].addIngredient(ingID, ingName, ingList);
 
 
+        /*
         //add ingredients
         Ingredient americanCheese = new Ingredient("American Cheese", "milk, enzymes, salt, oil");
         Ingredient beefPatty = new Ingredient("Beef Patty", "grinded cow insides");
@@ -68,10 +96,12 @@ public class Main {
         System.out.println("A " + hamburger.getFoodName() + " costs " + hamburger.getFoodPrice() + "$ and has: " + hamburger.getIngredientCount(0)+ " " + hamburger.getIngredientName(0) + "s.");
 
         System.out.println("This is what is in our " + beefPatty.getName() + ": " + beefPatty.getIngredientList() + ".");
+        */
+
     }
 
-    Menu[] menuList = new Menu[8];
-    public void addMenu(int id, String n, String a, String aR) {
+    private static Menu[] menuList = new Menu[8];
+    private static void addMenu(int id, String n, String a, String aR) {
         Menu m = new Menu(n, a, aR);
         menuList[id] = m;
     }

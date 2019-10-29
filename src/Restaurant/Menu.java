@@ -13,7 +13,7 @@ public class Menu {
         avail = a;
         availRange = aR;
     }
-    
+
     Food[] foodList = new Food[256]; //food items in that menu (an array of classes!)
     //food items get initialized here
     public void addFood(int id, String n, double p) {
