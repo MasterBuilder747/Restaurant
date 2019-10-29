@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
         Scanner kb = new Scanner(System.in);
 
         System.out.println("===Restaurant Menu Creator===");
@@ -19,12 +20,11 @@ public class Main {
 
         //add food items
         Food hamburger = new Food("Burger", 1.00);
-        hamburger.addIngredient(americanCheese, 1);
-        hamburger.addIngredient(whiteBun, 2);
-        hamburger.addIngredient(beefPatty, 1);
+        hamburger.addIngredient(0, 1, americanCheese);
+        hamburger.addIngredient(1, 2, whiteBun);
+        hamburger.addIngredient(2, 1, beefPatty);
 
-        System.out.println("A burger has: " + hamburger.getIngredientList());
-
+        System.out.println("A " + hamburger.getFoodName() + " costs " + hamburger.getFoodPrice() + "$ and has: " + hamburger.getIngredientCount(0)+ " " + hamburger.getIngredientName(0) + "s.");
     }
 
 }

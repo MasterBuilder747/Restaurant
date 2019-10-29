@@ -4,35 +4,33 @@ public class Food {
 
     private double price;
     private String name;
-    private String ingredientList[]; //syntax for storing data: IngredientName*count (String*int), comma-separated
-    private int ingCount = 0;
+    private int id;
+    //syntax for storing data: IngredientName*count (String*int), comma-separated
+    private String[] ingredientList = new String[32];
 
     public Food(String n, double p) {
         name = n;
         price = p;
     }
 
-    public int getIngCount() {
-        return ingCount;
-    }
-    public void incIngCount(int i) {
-        ingCount = ingCount + i;
+    public void addIngredient(int iid, int c, Ingredient i) {
+        //iid must start with 0
+        ingredientList[iid] = i.getName() + "*" + c;
     }
 
-    public void addIngredient(Ingredient i, int c) {
-        /*
-        for (int i = 0; i > 0; i++){
-            //add a method of adding ingredients using the above syntax for storing the data in an array
-            //each field in the array indicates a different ingredient and a count of each
-            String field = n + "*" + c;
-        }
-         */
-        ingredientList[getIngCount()] = i.getName() + "*" + c;
-        incIngCount(1);
+    public String getIngredientName(int id) {
+        return ingredientList[id].substring(0, ingredientList[id].indexOf("*"));
+    }
+    public int getIngredientCount(int id) {
+        String output = ingredientList[id].substring(ingredientList[id].indexOf("*") + 1);
+        return Integer.parseInt(output);
     }
 
-    public String getIngredientList() {
-        return ingredientList[0];
+    public double getFoodPrice() {
+        return price;
+    }
+    public String getFoodName() {
+        return name;
     }
 
 
