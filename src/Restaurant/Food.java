@@ -9,7 +9,7 @@ public class Food {
     private String[] ingredientList = new String[32];
 
     //const
-    public Food(String n, double p) {
+    Food(String n, double p) {
         name = n;
         price = p;
     }
@@ -41,8 +41,8 @@ public class Food {
         return name;
     }
 
-    Ingredient[] ingList = new Ingredient[64];
-    public void addIngredient(int id, String n, String i) {
+    private Ingredient[] ingList = new Ingredient[64];
+    void addIngredient(int id, String n, String i) {
         ingList[id] = new Ingredient(n, i);
     }
 }

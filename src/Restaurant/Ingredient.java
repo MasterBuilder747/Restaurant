@@ -1,6 +1,6 @@
 package Restaurant;
 
-public class Ingredient {
+class Ingredient {
 
     private String name;
     private String ingredientList;
@@ -15,6 +15,4 @@ public class Ingredient {
     String getIngredientList() {
         return ingredientList;
     }
-
-
 }
